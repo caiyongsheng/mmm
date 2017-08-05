@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab选项卡练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        #box{
+            width: 498px;
+            height: 150px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #Top{
+            width: 498px;
+            height: 40px;
+            text-align: center;
+            position: relative;
+            /*padding-right:1px;*/
+        }
+        #ulTag{
+            width: 502px;
+            position: absolute;
+            left: -1px;
+
+        }
+        #ulTag li{
+            float: left;
+            width: 100px;
+            line-height: 40px;
+            background-color: lightgray;
+            border-bottom:1px solid #666;
+        }
+        #Top #ulTag .first{
+            border-bottom:none;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+            background-color: white;
+        }
+        #Bottom{
+            width: 100%;
+            text-align: center;
+            padding: 18px 0;
+        }
+        #Bottom ul li{
+            float: left;
+            margin: 12px;
+            line-height: 20px;
+        }
+        #Bottom ul li a{
+            width: 220px;
+            font-size: 16px;
+            color: black;
+            display: inline-block;
+        }
+        #Bottom ul li a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="Top">
+        <ul id="ulTag">
+            <li class="first">公告</li>
+            <li>论坛</li>
+            <li>规则</li>
+            <li>安全</li>
+            <li>公益</li>
+        </ul>
+    </div>
+    <div id="Bottom">
+        <div>
+            <ul>
+                <li>
+                    <a href="#">数据七夕:金牛爱送玫瑰</a>
+                </li>
+                <li>
+                    <a href="#">阿里打造"互联网监管"</a>
+                </li>
+                <li>
+                    <a href="#">10万家店60万新品</a>
+                </li>
+                <li>
+                    <a href="#">全球最大网上时装周</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="#">“全额返现”要管控啦</a>
+                </li>
+                <li>
+                    <a href="#">淘宝新规发布汇总(7月)</a>
+                </li>
+                <li>
+                    <a href="#">炒信规则调整意见反馈</a>
+                </li>
+                <li>
+                    <a href="#">质量相关规则近期变更</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="#">阿里建商家全链路服务</a>
+                </li>
+                <li>
+                    <a href="#">个性化的消费时代来临</a>
+                </li>
+                <li>
+                    <a href="#">跨境贸易是中小企业机</a>
+                </li>
+                <li>
+                    <a href="#">美妆行业虚假信息管控</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="#">接次文件，毁了一家店</a>
+                </li>
+                <li>
+                    <a href="#">账号安全神器阿里钱盾</a>
+                </li>
+                <li>
+                    <a href="#">新版阿里110上线了</a>
+                </li>
+                <li>
+                    <a href="#">卖家学违禁避免被处罚</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="#">为了公益high起来</a>
+                </li>
+                <li>
+                    <a href="#">魔豆妈妈在线申请</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    var ulTag = document.getElementById('ulTag');
+    var Bottom = document.getElementById('Bottom').getElementsByTagName('div');
+    //    for (var i=0;i<ulTag.children.length;i++){
+    //         ulTag.children[i].index = i;
+    //         ulTag.children[i].onmouseover = function () {
+    //            for (var i=0;i<ulTag.children.length;i++){
+    //                ulTag.children[i].className = '';
+    //                Bottom[i].style.display = 'none';
+    //            }
+    //            this.className = 'first';
+    //             Bottom[this.index].style.display = 'block';
+    //         }
+    //    }
+    var lastIndex = 0;
+    for (var i=0;i<ulTag.children.length;i++){
+        ulTag.children[i].index = i;
+        (function (index) {
+            ulTag.children[i].onmouseover = function () {
+                ulTag.children[lastIndex].className = '';
+                Bottom[lastIndex].style.display = 'none';
+                this.className = 'first';
+                Bottom[this.index].style.display = 'block';
+                lastIndex = index;
+            }
+        })(i)
+    }
+
+</script>
+</body>
+</html>
